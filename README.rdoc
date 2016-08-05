@@ -30,14 +30,14 @@ System is very much flexible to apply/change rules.
 
 --Local Setup
 
+ - git clone https://github.com/ripan/noths.git
+ - cd noths/
+ - bundle
+ - rake db:setup
 
--git clone https://github.com/ripan/noths.git
+--Run test
 
--cd noths/
-
--bundle
-
--rake db:setup
+ - rspec spec/models
 
 Login: guest@abc.com
 Password: Password1
