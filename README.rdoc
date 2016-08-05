@@ -37,7 +37,7 @@ System is very much flexible to apply/change rules.
  - bundle
  - rake db:setup
 
---Run test
+--Run test (only unit test)
 
  - rspec spec/models
 --Login Credentials
