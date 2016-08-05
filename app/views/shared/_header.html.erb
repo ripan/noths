@@ -1,0 +1,51 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%=link_to image_tag("noths_logo.png", height: "50"), root_url, :class=>"navbar-brand" %>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><%=link_to_acive 'Products', products_url%></li>
+      </ul>
+
+      <%= form_tag('/search', {:class=>"navbar-form navbar-left", :role=> "search", :method => :get}) do |f| %>
+      <div class="form-group">
+        <%= text_field_tag :keyword , '' ,:class=>"form-control", :placeholder=>"Search"%>
+      </div>
+      <%= submit_tag 'Search', :class=>"btn btn-default"%>
+      <% end %>
+
+      <ul class="nav navbar-nav navbar-right">
+        <%if user_signed_in?%>
+        <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Admin <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><%= link_to 'New Product', new_product_path %></li>
+            <li><%= link_to 'Product Promotional Rules', promotional_rules_path %></li>
+            <li><%= link_to 'Misc Promotional Rules', misc_promotional_rules_path %></li>
+          </ul>
+        </li>
+        <%unless current_user.cart.nil?%>
+        <li class="active"><%= link_to "Cart items: #{current_user.cart.carts_products.sum(:quantity)}", carts_products_url %></li>
+        <%else%>
+        <li><a>Cart Items: 0</a></li>
+        <%end%>
+        <li><a href="#"><%=current_user.email%></a></li>
+        <li class="active"><%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %></li>
+        <li></li>
+        <%else%>
+        <li><%= link_to 'Sign in', new_user_session_path %></li>
+        <li><%= link_to 'Sign up', new_user_registration_path %></li>
+        <li><%= link_to 'Forgot your password?', new_user_password_path %></li>
+        <%end%>
+      </ul>
+      
+    </div>
+  </div>
+</nav>

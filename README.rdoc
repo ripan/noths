@@ -1,0 +1,40 @@
+== README
+
+RubyGems Environment:
+  - RUBYGEMS VERSION: 2.4.5.1
+  - RUBY VERSION: 2.2.3 (2015-08-18 patchlevel 173) [x86_64-darwin14]
+  - RUBYGEMS PLATFORMS:
+    - ruby
+    - x86_64-darwin-14
+  - REMOTE SOURCES:
+     - https://rubygems.org/
+
+Rails : 4.2.0
+
+Database : Mysql
+
+Authentication : Devise
+
+Github : git@github.com:ripan/noths.git
+         https://github.com/ripan/noths.git
+
+Heroku Deployment : https://noths.herokuapp.com        
+
+
+There are 2 types of promotional rules that can be applied on a cart
+
+1) Product Promotional Rules (Rules applied on Products)
+2) Misc Promotional Rules (Rules applied on Cart, User)     
+
+System is very much flexible to apply/change rules.
+
+Local Setup
+
+
+git clone https://github.com/ripan/noths.git
+cd noths/
+bundle
+rake db:setup
+
+Login: guest@abc.com
+Password: Password1

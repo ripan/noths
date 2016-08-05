@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Noths</title>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
+</head>
+<body>
+	<%=render :partial => 'shared/header'%>
+	<div class="container">
+		<%=render :partial => 'shared/flash_messages'%>
+		<%if current_user && !current_user.cart.nil?%>
+		<div class="alert alert-info" role="alert">
+			<div>
+			You have <strong><%= link_to "#{current_user.cart.carts_products.sum(:quantity)}", carts_products_url %></strong> items in your cart.
+			</div>
+		</div>
+		<%end%>
+		<%= yield %>
+	</div>
+	<hr>
+	<%=render :partial => 'shared/footer'%>
+
+</body>
+</html>
